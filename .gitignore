@@ -1,0 +1,9 @@
+.ruby-version
+*.swp
+.buildpath
+.project
+.vagrant/
+Gemfile.lock
+terraform.tfvars
+terraform.tfplan
+terraform.tfstate*
