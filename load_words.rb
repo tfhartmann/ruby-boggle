@@ -1,5 +1,6 @@
 #!/usr/bin/env ruby
 
+require 'optparse'
 require 'json'
 require 'httparty'
 
