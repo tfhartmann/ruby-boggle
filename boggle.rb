@@ -28,10 +28,16 @@ optparse.parse!
 a_body.each do | word |
         #puts "this is a word : #{word}"
         if options[:string] == word 
-            puts "word : #{word} matches hash value : #{options[:string]} !!"
+            puts "Test!"
         end
 end
 #debug
 puts options
 puts options[:string]
 puts ARGV
+
+# Binary search  (cut list in half) 
+# ( might be better to use a hash to lookup words) 
+# hash set 
+#
+
