@@ -29,6 +29,7 @@ a_body.each do | word |
         #puts "this is a word : #{word}"
         if options[:string] == word 
             puts "Test!"
+            puts "test2"
         end
 end
 #debug

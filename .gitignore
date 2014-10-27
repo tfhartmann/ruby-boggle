@@ -7,3 +7,5 @@ Gemfile.lock
 terraform.tfvars
 terraform.tfplan
 terraform.tfstate*
+.c9revisions
+.c9
