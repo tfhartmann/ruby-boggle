@@ -30,17 +30,17 @@ optparse.parse!
 
 @word = options[:string] 
 
-#puts "this is a word : #{word}"
-if d_body.has_key?(@word)
-    puts "Test!"
+def match_word(word, array)
+    if array.has_key?(word)
+        puts "Matched word : #{word}"
+    end
 end
 
+match_word(@word, d_body)
 #debug
 #puts pp(d_body)
 puts options
 puts options[:string]
-puts "from set"
-puts d_body["zosters"]
 puts ARGV
 
 # Binary search  (cut list in half) 
