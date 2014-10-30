@@ -32,16 +32,16 @@ optparse.parse!
 
 def match_word(word, array)
     if array.has_key?(word)
-        puts "Matched word : #{word}"
+        puts "#{word} : is a word!"
     end
 end
 
 match_word(@word, d_body)
 #debug
 #puts pp(d_body)
-puts options
-puts options[:string]
-puts ARGV
+#puts options
+#puts options[:string]
+#puts ARGV
 
 # Binary search  (cut list in half) 
 # ( might be better to use a hash to lookup words) 
