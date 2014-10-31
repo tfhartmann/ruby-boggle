@@ -6,7 +6,7 @@ require 'pp'
 
 maze = [ 
         ["x", "x", "x", "x", "x", ],
-        ["x", " ", " ", " ", "x", ],
+        ["x", " ", " ", " ", " ", ],
         ["x", " ", "x", "x", "x", ],
         ["x", " ", "x", "x", "x", ],
         ["x", " ", "x", " ", "x", ],
@@ -55,3 +55,5 @@ pp(stack)
 pp(maze)
 
 #puts maze.kind_of?(Array)
+#unit test for this: 
+#  point a can get to b and point a can not get to c
