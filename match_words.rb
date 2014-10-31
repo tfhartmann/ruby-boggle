@@ -38,7 +38,7 @@ end
 
 match_word(@word, d_body)
 #debug
-#puts pp(d_body)
+#pp(d_body)
 #puts options
 #puts options[:string]
 #puts ARGV
@@ -48,3 +48,6 @@ match_word(@word, d_body)
 # hash set 
 #
 
+#
+# f o 
+# o o
