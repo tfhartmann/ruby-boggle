@@ -110,10 +110,10 @@ end
 all_words_lookup = AwesomeSearch.new(all_words)
 also_all_words_lookup = LessAwesomeSearch.new(all_words)
 
-for i in 0...10 do
-  rand_word = (0...2).map { ('a'.ord + rand(26)).chr }.join
-  puts rand_word
-  puts test_words_lookup.search(rand_word)
-  puts all_words_lookup.search(rand_word)
-  puts also_all_words_lookup.search(rand_word)
-end
+#for i in 0...10 do
+#  rand_word = (0...2).map { ('a'.ord + rand(26)).chr }.join
+#  puts rand_word
+#  puts test_words_lookup.search(rand_word)
+#  puts all_words_lookup.search(rand_word)
+#  puts also_all_words_lookup.search(rand_word)
+#end
