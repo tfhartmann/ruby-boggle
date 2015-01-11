@@ -63,10 +63,15 @@ class BoggleSolver
       return []
     end 
     for diff_row in -1..1
-       
-       for diff_col in -1..1
-         word_list = word_list+recurse(board,row+diff_row, col+diff_col, word)
-       end
+      if diff_row == 0
+        next
+      end
+      for diff_col in -1..1
+        if diff_row == 0
+          next
+        end
+        word_list = word_list+recurse(board,row+diff_row, col+diff_col, word)
+      end
     end 
     return word_list
   end
