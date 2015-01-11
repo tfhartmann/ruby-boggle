@@ -52,7 +52,7 @@ class BoggleSolver
     end
     word = word+board[row][col]
     word_list = []
-    if @prefix.search(word+".")
+    if @prefix.search(word+".") and @prefix.search(word+".").length > 2
       word_list.push(word)
     end
     if !@prefix.search(word)
