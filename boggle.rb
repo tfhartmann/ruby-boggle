@@ -35,12 +35,16 @@ class BoggleSolver
  
   def solve(board)
     word_list = []   
+    word_dict = {}
     for row in 0..3
       for col in 0..3
         word_list=word_list+recurse(board,row, col, "")
       end
     end
-    return word_list # This should a list of matched words
+    word_list.each { |word|
+      word_dict[word] = word
+    }
+    return word_dict.keys # This should a list of matched words
   end 
 
   # This is going to be magic.. fucking magic - MB
@@ -52,7 +56,6 @@ class BoggleSolver
     end
     word = word+board[row][col]
     word_list = []
-    word_dict = {}
     if @prefix.search(word+".") and @prefix.search(word+".").length > 2
       word_list.push(word)
     end
@@ -65,10 +68,7 @@ class BoggleSolver
          word_list = word_list+recurse(board,row+diff_row, col+diff_col, word)
        end
     end 
-    word_list.each { |word|
-      word_dict[word] = word
-    }
-    return word_dict.keys
+    return word_list
   end
 end
 
