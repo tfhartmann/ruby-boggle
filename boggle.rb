@@ -37,9 +37,15 @@ class BoggleSolver
   def solve(board)
     word_list = []   
     word_dict = {}
+    ghost_board = [
+      [0,0,0,0],
+      [0,0,0,0],
+      [0,0,0,0],
+      [0,0,0,0]
+    ]
     for row in 0..3
       for col in 0..3
-        word_list=word_list+recurse(board,row, col, "")
+        word_list=word_list+recurse(board,row, col, "", ghost_board )
       end
     end
     word_list.each { |word|
@@ -50,11 +56,14 @@ class BoggleSolver
 
   # This is going to be magic.. fucking magic - MB
   #private
-  def recurse(board, row, col, word)
+  def recurse(board, row, col, word, visited)
     # assume the board is 4x4
     if row < 0 or row >= 4 or col < 0 or col >= 4
       return []
     end
+    if visited[row][col] == 1
+      return []
+    end 
     word = word+board[row][col]
     word_list = []
     if @prefix.search(word+".") and @prefix.search(word+".").length > 2
@@ -63,14 +72,16 @@ class BoggleSolver
     if !@prefix.search(word)
       return []
     end 
+    visited[row][col] = 1
     for diff_row in -1..1
       for diff_col in -1..1
         if diff_row == 0 and diff_col == 0
           next
         end
-        word_list = word_list+recurse(board,row+diff_row, col+diff_col, word)
+        word_list = word_list+recurse(board,row+diff_row, col+diff_col, word, visited)
       end
     end 
+    visited[row][col] = 0
     return word_list
   end
 end
