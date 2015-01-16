@@ -32,20 +32,22 @@ puts (100.0*win/(notwin+win)).round(2)
 def win_percent( dicenumber, number2beat, facesofdie )
   @win = 0
   @notwin = 0
-  def recurse ( dicenumber, number2beat, facesofdie, sumsofar ) 
-    if dicenumber == 0
-      if sumsofar >= number2beat
+  @num2beat = number2beat
+  @faces = facesofdie
+  def recurse ( diceleft, sumsofar ) 
+    if diceleft == 0
+      if sumsofar >= @num2beat
         @win = @win+1
       else
         @notwin = @notwin+1
       end
     else
-      for i in 0...facesofdie.length
-        recurse( dicenumber-1, number2beat, facesofdie, sumsofar+facesofdie[i] )
+      for i in 0...@faces.length
+        recurse( diceleft-1, sumsofar+@faces[i] )
       end
     end
   end
-  recurse( dicenumber, number2beat, facesofdie, 0 )
+  recurse( dicenumber, 0 )
   percent = (100.0*@win/(@notwin+@win)).round(2)
   puts "#{percent}%"
 end
