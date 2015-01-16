@@ -3,6 +3,7 @@
 # Only print out 1 of each word that it finds
 
 # Hand this program a board and output words
+require 'pp'
 
 class PrefixFinder
   def initialize(word_list)
@@ -63,11 +64,8 @@ class BoggleSolver
       return []
     end 
     for diff_row in -1..1
-      if diff_row == 0
-        next
-      end
       for diff_col in -1..1
-        if diff_row == 0
+        if diff_row == 0 and diff_col == 0
           next
         end
         word_list = word_list+recurse(board,row+diff_row, col+diff_col, word)
@@ -86,6 +84,7 @@ test_board = [
   ["x","x","g","x"]
 ]
 
+pp test_board
 test_dict = [ "cat", "dog", "fish" ]
 test_solver = BoggleSolver.new(test_dict) 
 #puts test_solver.solve(test_board)
