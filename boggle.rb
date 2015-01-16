@@ -95,7 +95,7 @@ test_board = [
   ["x","x","g","x"]
 ]
 
-pp test_board
+#pp test_board
 test_dict = [ "cat", "dog", "fish" ]
 test_solver = BoggleSolver.new(test_dict) 
 #puts test_solver.solve(test_board)
@@ -105,5 +105,25 @@ File.open('ospd.txt').each do | line |
   all_words.push(line.strip)
 end
 
+# Generate a random 4x4 board 
+def random_board
+  def random_letter
+    return ('a'.ord + rand(26)).chr 
+  end
+  board = []
+  for row in 0..3
+    current_row = []
+    for col in 0..3
+     current_row.push(random_letter)  
+    end
+    board.push(current_row)
+  end
+  return board
+end 
+
 allword_solver = BoggleSolver.new(all_words)
-puts allword_solver.solve(test_board)
+#puts allword_solver.solve(test_board)
+
+r_board = random_board
+pp r_board
+puts allword_solver.solve(r_board)
